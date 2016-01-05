@@ -21,7 +21,9 @@
 
 .controller('MainCtrl', ['$scope','$http', function ($scope,$http) {
 
-    this.getData = function () {
+    this.showCreateAlert = false;
+
+    this.loadGrid = function () {
         var scope = this;
         $http.get('api/Students')
             .success(function (data) {
@@ -30,7 +32,16 @@
           });
     }
 
-    this.getData();
+    this.createStudent = function (student) {
+        console.log("here");
+        var scope = this;
+        $http.post('api/Students', student)
+        .success(function () {
+            console.log("Created");
+            scope.loadGrid();
+            scope.showCreateAlert = true;
+        })
+    }
 
 }])
 
