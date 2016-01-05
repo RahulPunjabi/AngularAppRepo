@@ -125,6 +125,7 @@
     <Content Include="HTML_Partial\deleteModal.html" />
     <Content Include="HTML_Partial\editModal.html" />
     <Content Include="HTML_Partial\header.html" />
+    <Content Include="HTML_Partial\sidebar.html" />
     <Content Include="HTML_Partial\studentGrid.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
