@@ -5,7 +5,7 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" ng-click="ctrl.resetFlag()" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Create Student</h4>
       </div>
       <div class="modal-body">  
@@ -27,7 +27,7 @@
       <div class="modal-footer">
         <div class="alert alert-success fade in ng-hide" ng-show="ctrl.showCreateAlert">Student has been added successfully !</div>
         <button type="button" class="btn btn-success" ng-disabled="studentForm.$invalid" ng-click="ctrl.createStudent(student)">Save</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" ng-click="ctrl.resetFlag()" data-dismiss="modal">Close</button>
       </div>
     </div>
 
