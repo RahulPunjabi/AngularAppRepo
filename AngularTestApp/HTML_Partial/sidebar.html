@@ -4,8 +4,7 @@
         <a class="navbar-brand" href="#">Sidebar Menu</a>
         </div>
         <ul class="nav navbar-nav">
-                <li class=""><a href="#">Students</a></li>
-                <li class=""><a href="#">Courses</a></li>
+                <li ng-repeat="model in ctrl.ContollerModels" ng-click="ctrl.loadGrid(model)"><a href="#">{{model}}</a></li>
         </ul>
     </div>
 </div>

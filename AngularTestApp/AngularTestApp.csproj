@@ -907,6 +907,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DynamicModelController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Data_Access\AppContext.cs" />
     <Compile Include="Global.asax.cs">

@@ -23,14 +23,16 @@
 
     this.showCreateAlert = false;
     var scope = this;
+    var globalModelName;
 
     this.resetFlag = function () {
         this.showCreateAlert = false;
     }
 
     //getAll
-    this.loadGrid = function () {
-        $http.get('api/Students')
+    this.loadGrid = function (modelName) {
+        globalModelName = modelName;
+        $http.get('api/' + globalModelName)
             .success(function (data) {
               scope.students = data;
               console.log(data);
@@ -45,7 +47,7 @@
             scope.student.EnrollmentDate = new Date(data['EnrollmentDate']);
             console.log(scope.student.EnrollmentDate);
             console.log(data);
-        });
+        })
 
     }
 
@@ -54,7 +56,7 @@
         $http.post('api/Students', student)
         .success(function () {
             console.log("Created");
-            scope.loadGrid();
+            scope.loadGrid(globalModelName);
             scope.showCreateAlert = true;
         })
     }
@@ -64,7 +66,7 @@
         $http.put('api/Students/' + studentID, student)
         .success(function () {
             console.log("Updated");
-            scope.loadGrid();
+            scope.loadGrid(globalModelName);
             scope.showCreateAlert = true;
         })
     }
@@ -74,11 +76,21 @@
         $http.delete('api/Students/' + studentID)
         .success(function (data){
             console.log(data);
-            scope.loadGrid();
+            scope.loadGrid(globalModelName);
             scope.showCreateAlert = true;
         }
          
         )
+    }
+
+    //Get model names for sidebar
+    this.getModelNames = function () {
+        console.log("Here");
+        $http.get('api/DynamicModels')
+        .success(function (data) {
+            console.log(data);
+            scope.ContollerModels = data;
+        })
     }
 
 }])
